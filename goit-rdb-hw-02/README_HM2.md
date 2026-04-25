@@ -107,35 +107,7 @@
 
 ## 4. ER-діаграма
 
-```mermaid
-erDiagram
-    CUSTOMERS ||--o{ ORDERS : places
-    ORDERS ||--|{ ORDER_ITEMS : contains
-    PRODUCTS ||--o{ ORDER_ITEMS : "included in"
-
-    CUSTOMERS {
-        INT id PK
-        VARCHAR(100) name
-        VARCHAR(255) address
-    }
-
-    ORDERS {
-        INT id PK
-        DATE order_date
-        INT customer_id FK
-    }
-
-    PRODUCTS {
-        INT id PK
-        VARCHAR(100) name
-    }
-
-    ORDER_ITEMS {
-        INT id PK
-        INT order_id FK
-        INT product_id FK
-        INT quantity
-    }
+![alt text](image.png)
 
 
 ### Опис сутностей та атрибутів
@@ -165,7 +137,6 @@ erDiagram
 
 ## 5. SQL-скрипт для створення таблиць
 
-```sql
 CREATE DATABASE IF NOT EXISTS mydb
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
