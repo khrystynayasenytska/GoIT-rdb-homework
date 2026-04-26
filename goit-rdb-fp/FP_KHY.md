@@ -40,7 +40,7 @@ IGNORE 1 LINES;
 
 -- 5. Перевірка
 SELECT COUNT(*) AS total_records FROM infectious_cases;
-
+---
 
 ## Завдання 2. Нормалізація до 3НФ
 
@@ -69,7 +69,7 @@ FROM infectious_cases;
 CREATE TABLE cases (
     case_id              INT AUTO_INCREMENT PRIMARY KEY,
     entity_id            INT NOT NULL,
-    `Year`               INT NOT NULL,
+    `Year               INT NOT NULL,
     Number_yaws          DOUBLE,
     polio_cases          DOUBLE,
     cases_guinea_worm    DOUBLE,
