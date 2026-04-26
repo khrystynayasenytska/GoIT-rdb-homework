@@ -40,11 +40,13 @@ IGNORE 1 LINES;
 
 -- 5. Перевірка
 SELECT COUNT(*) AS total_records FROM infectious_cases;
+```
+
 ---
 
 ## Завдання 2. Нормалізація до 3НФ
 
-Атрибути Entity і Code повторюються для кожного року — це порушення 3НФ. Виносимо їх у довідник entities, а у таблиці фактів cases лишаємо entity_id як "FOREIGN KEY". Заодно конвертуємо текстові числові колонки у DOUBLE (порожні рядки стають "NULL").
+Атрибути Entity і Code повторюються для кожного року — це порушення 3НФ. Виносимо їх у довідник entities, а у таблиці фактів cases лишаємо entity_id як FOREIGN KEY. Заодно конвертуємо текстові числові колонки у DOUBLE (порожні рядки стають NULL).
 
 
 ```sql
@@ -69,7 +71,7 @@ FROM infectious_cases;
 CREATE TABLE cases (
     case_id              INT AUTO_INCREMENT PRIMARY KEY,
     entity_id            INT NOT NULL,
-    `Year               INT NOT NULL,
+    `Year`               INT NOT NULL,
     Number_yaws          DOUBLE,
     polio_cases          DOUBLE,
     cases_guinea_worm    DOUBLE,
@@ -134,6 +136,7 @@ WHERE c.Number_rabies IS NOT NULL
 GROUP BY e.entity_id, e.entity, e.code
 ORDER BY avg_rabies DESC
 LIMIT 10;
+```
 
 ![alt text](image-1.png)
 
@@ -210,7 +213,8 @@ SELECT
     YearsFromYearToNow(`Year`) AS years_difference
 FROM infectious_cases
 LIMIT 20;
----
+```
+
 
 ![alt text](image-3.png)
 ![alt text](image-4.png)
@@ -218,7 +222,7 @@ LIMIT 20;
 
 ## Альтернативна функція: кількість захворювань за період
 
-
+```sql
 USE pandemic;
 
 DROP FUNCTION IF EXISTS CasesPerPeriod;
@@ -251,6 +255,7 @@ FROM infectious_cases
 WHERE Number_rabies IS NOT NULL
   AND Number_rabies <> ''
 LIMIT 20;
+```
 
 ![alt text](image-5.png)
 
