@@ -2,7 +2,7 @@
 
 Кількість завантажених записів: `SELECT COUNT(*) FROM infectious_cases;` → **10 521**.
 
-![alt text](image.png)
+![alt text](image-6.png)
 
 Стандартний **Table Data Import Wizard** у MySQL Workbench часто втрачає рядки (у тестах було 7271 замість 10520) — він пропускає порожні значення у числових колонках. Тому використовувала `LOAD DATA LOCAL INFILE`. ( OPT_LOCAL_INFILE=1)
 
@@ -111,7 +111,7 @@ SELECT * FROM entities LIMIT 10;
 SELECT * FROM cases    LIMIT 10;
 ```
 
-### Очікуваний результат
+### Результат
 - `entities` — **245** рядків
 - `cases` — **10521** рядків
 
