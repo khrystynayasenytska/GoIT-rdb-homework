@@ -1,5 +1,5 @@
 ### 1. Схема та імпорт
-Створено схему `pandemic`, обрано як default, завантажено CSV через Import Wizard.
+
 Кількість завантажених записів: `SELECT COUNT(*) FROM infectious_cases;` → **10 521**.
 
 ![alt text](image.png)
